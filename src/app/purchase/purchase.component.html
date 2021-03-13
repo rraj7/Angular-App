@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-md-2">
+        <a routerLink="/" class="btn btn-default">
+            Home
+        </a>
+    </div>
+    <div class="col-md-2">
+        <a routerLink="/purchase" class="btn btn-default">
+            Purchase
+        </a>
+    </div>
+    <div class="col-md-2">
+        <a routerLink="/spend" class="btn btn-default">
+            Spend
+        </a>
+    </div>
+    <div class="col-md-2">
+        <a routerLink="/history" class="btn btn-default">
+            History
+        </a>
+    </div>
+</div>
+<div class="row">
+    <b>Purchase Tokens</b>
+</div>
+<div class="row">
+    <form (submit)="addNewUser()">
+        <table class="table">
+            <thead>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Customer Name</td>
+                    <td><input type="text" class="form-control" [(ngModel)]="newPurchaseItem.name" name="name" (focus)="focuscalled()"
+                            (blur)="blurCheckName()" /></td>
+                </tr>
+
+                <tr>
+                    <td>Tokens</td>
+                    <td><input type="number" class="form-control" [(ngModel)]="newPurchaseItem.token" name="token" /></td>
+                </tr>
+                <tr>
+                    <td>Remarks</td>
+                    <td><input type="text" class="form-control" [(ngModel)]="newPurchaseItem.desc" name="desc" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td *ngIf="!IsSaved"><button class="btn btn-primary" type="submit">ADD</button></td>
+                </tr>
+                <tr *ngIf="IsSaved">
+                    <td colspan="2">{{msg}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Token Balance</th>
+                <th>Remarks</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of arrPurchase">
+                <td>{{item.name}}</td>
+                <td>{{item.token}}</td>
+                <td>{{item.desc}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-2">
+        <a routerLink="/" class="btn btn-default">
+            Home
+        </a>
+    </div>
+    <div class="col-md-2">
+        <a routerLink="/purchase" class="btn btn-default">
+            Purchase
+        </a>
+    </div>
+    <div class="col-md-2">
+        <a routerLink="/spend" class="btn btn-default">
+            Spend
+        </a>
+    </div>
+    <div class="col-md-2">
+        <a routerLink="/history" class="btn btn-default">
+            History
+        </a>
+    </div>
+</div>
+<div class="row">
+    <b>History</b>
+</div>
+
+<div class="row"> 
+    <table class="table">
+        <thead>
+         
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of arrSpend">
+                <td>{{item.name}} has used {{item.token}} tokens with the description "{{item.desc}}"</td>
+               
+            </tr>
+        </tbody>
+    </table>
+</div>
